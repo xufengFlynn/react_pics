@@ -1,9 +1,7 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-  onInputChange(event) {
-    console.log(event.target.value);
-  }
+  state = { term: "" };
 
   render() {
     return (
@@ -12,8 +10,8 @@ class SearchBar extends React.Component {
           <div className="field">
             <input
               type="text"
-              placeholder="Have a try !"
-              onChange={this.onInputChange}
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })}
             />
             <div className="ui pointing blue basic label">
               Pics you want to search !
